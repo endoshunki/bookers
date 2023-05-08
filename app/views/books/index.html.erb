@@ -1,0 +1,44 @@
+<style>
+  body {
+    margin: 33px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+</style>
+<body>
+  <h1>Books</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th conspan ="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @book.each do |book| %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.body %></td>
+          <td><%= link_to "show",'/books/:id', book_path(book.id) ,method: :get %>
+          <td><a href = "/books/:id/edit">edit</a></td>
+          <td><%= link_to 'Destroy', method: :delete, data: { confirm: '削除しますか？' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <%= form_with model: @book, url: '/books/create' do |f| %>
+  
+  <p>title</p>
+  <%= f.text_field :title %>
+  <p>body</p>
+  <%= f.text_area :body %>
+  
+  <%= f.submit 'create' %>
+  
+  <% end %>
+  
+</body>
