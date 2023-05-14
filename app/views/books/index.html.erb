@@ -30,7 +30,7 @@
     </tbody>
   </table>
   
-  <%= form_with model: @book, url: '/books/create' do |f| %>
+  <%= form_with model: @book, url: '/books', id: "book.id" do |f| %>
   
   <p>title</p>
   <%= f.text_field :title %>

@@ -1,6 +1,20 @@
+<style>
+    main {
+        margin: 33px;
+    }
+    div {
+        color: green;
+    }
+</style>
+<main>
+<div>
+  <p><%= flash[:notice] %></p>
+</div>
+
 <p><strong>title</strong>
 <%= @book.title %></p>
 <p><strong>body</strong>
 <%= @book.body %></p>
 
 <p><%= link_to "edit",edit_book_path(@book.id) %>|<%= link_to "back",books_path(@book.id) %></p>
+</main>
